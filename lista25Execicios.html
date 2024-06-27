@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Exercícios - JavaScript</title>
+</head>
+<body>
+
+    <!-- Exercício 1: Calculo de Calorias de uma Refeição -->
+    <h2>Exercício 1: Calcular Calorias de uma Refeição</h2>
+    <script>
+        function calcularCalorias() {
+            const pratos = {
+                1: 180, // Vegetariano
+                2: 230, // Peixe
+                3: 250, // Frango
+                4: 350  // Carne
+            };
+
+            const sobremesas = {
+                1: 75,  // Abacaxi
+                2: 110, // Sorvete diet
+                3: 170, // Mouse diet
+                4: 200  // Mouse chocolate
+            };
+
+            const bebidas = {
+                1: 20,  // Chá
+                2: 70,  // Suco de laranja
+                3: 100, // Suco de melão
+                4: 65   // Refrigerante diet
+            };
+
+            const prato = parseInt(prompt("Escolha um prato: 1 - Vegetariano, 2 - Peixe, 3 - Frango, 4 - Carne"));
+            const sobremesa = parseInt(prompt("Escolha uma sobremesa: 1 - Abacaxi, 2 - Sorvete diet, 3 - Mouse diet, 4 - Mouse chocolate"));
+            const bebida = parseInt(prompt("Escolha uma bebida: 1 - Chá, 2 - Suco de laranja, 3 - Suco de melão, 4 - Refrigerante diet"));
+
+            const totalCalorias = pratos[prato] + sobremesas[sobremesa] + bebidas[bebida];
+            document.getElementById("resultado1").textContent = "Total de calorias: " + totalCalorias;
+        }
+        calcularCalorias();
+    </script>
+    <p id="resultado1"></p>
+
+    <!-- Exercício 2: Verificar Divisibilidade por 10, 5 ou 2 -->
+    <h2>Exercício 2: Verificar Divisibilidade</h2>
+    <script>
+        function verificarDivisibilidade() {
+            const numero = parseInt(prompt("Digite um número:"));
+
+            let resultado = "O número não é divisível por 10, 5 ou 2";
+            if (numero % 10 === 0) {
+                resultado = "O número é divisível por 10";
+            } else if (numero % 5 === 0) {
+                resultado = "O número é divisível por 5";
+            } else if (numero % 2 === 0) {
+                resultado = "O número é divisível por 2";
+            }
+
+            document.getElementById("resultado2").textContent = resultado;
+        }
+        verificarDivisibilidade();
+    </script>
+    <p id="resultado2"></p>
+
+    <!-- Exercício 3: Calcular Crédito Especial -->
+    <h2>Exercício 3: Calcular Crédito Especial</h2>
+    <script>
+        function calcularCredito() {
+            const saldoMedio = parseFloat(prompt("Digite o saldo médio do último ano:"));
+
+            let credito = 0;
+            if (saldoMedio > 400) {
+                credito = saldoMedio * 0.3;
+            } else if (saldoMedio > 300) {
+                credito = saldoMedio * 0.25;
+            } else if (saldoMedio > 200) {
+                credito = saldoMedio * 0.2;
+            } else {
+                credito = saldoMedio * 0.1;
+            }
+
+            document.getElementById("resultado3").textContent = `Saldo médio: R$${saldoMedio.toFixed(2)}, Crédito: R$${credito.toFixed(2)}`;
+        }
+        calcularCredito();
+    </script>
+    <p id="resultado3"></p>
+
+    <!-- Exercício 4: Ordenar Três Valores em Ordem Decrescente -->
+    <h2>Exercício 4: Ordenar Três Valores</h2>
+    <script>
+        function ordenarValores() {
+            const A = parseFloat(prompt("Digite o valor de A:"));
+            const B = parseFloat(prompt("Digite o valor de B:"));
+            const C = parseFloat(prompt("Digite o valor de C:"));
+
+            const valores = [A, B, C];
+            valores.sort((a, b) => b - a);
+
+            document.getElementById("resultado4").textContent = "Valores em ordem decrescente: " + valores;
+        }
+        ordenarValores();
+    </script>
+    <p id="resultado4"></p>
+
+    <!-- Exercício 5: Informar Classe Eleitoral -->
+    <h2>Exercício 5: Informar Classe Eleitoral</h2>
+    <script>
+        function informarClasseEleitoral() {
+            const idade = parseInt(prompt("Digite a idade:"));
+
+            let classeEleitoral = "Eleitor facultativo";
+            if (idade < 16) {
+                classeEleitoral = "Não eleitor";
+            } else if (idade >= 18 && idade < 65) {
+                classeEleitoral = "Eleitor obrigatório";
+            }
+
+            document.getElementById("resultado5").textContent = classeEleitoral;
+        }
+        informarClasseEleitoral();
+    </script>
+    <p id="resultado5"></p>
+
+    <!-- Exercício 6: Imprimir Antecessor e Sucessor de um Número -->
+    <h2>Exercício 6: Antecessor e Sucessor</h2>
+    <script>
+        function imprimirAntecessorSucessor() {
+            const numero = parseInt(prompt("Digite um número inteiro:"));
+
+            const antecessor = numero - 1;
+            const sucessor = numero + 1;
+
+            document.getElementById("resultado6").textContent = `Antecessor: ${antecessor}, Sucessor: ${sucessor}`;
+        }
+        imprimirAntecessorSucessor();
+    </script>
+    <p id="resultado6"></p>
+
+    <!-- Exercício 7: Calcular Médias e Soma das Médias -->
+    <h2>Exercício 7: Calcular Médias e Soma das Médias</h2>
+    <script>
+        function calcularMedias() {
+            const numeros1 = [8, 9, 7];
+            const numeros2 = [4, 5, 6];
+
+            const media1 = numeros1.reduce((a, b) => a + b) / numeros1.length;
+            const media2 = numeros2.reduce((a, b) => a + b) / numeros2.length;
+
+            const somaDasMedias = media1 + media2;
+            const mediaDasMedias = somaDasMedias / 2;
+
+            document.getElementById("resultado7").innerHTML = `
+                Média dos números 8, 9 e 7: ${media1}<br>
+                Média dos números 4, 5 e 6: ${media2}<br>
+                Soma das médias: ${somaDasMedias}<br>
+                Média das médias: ${mediaDasMedias}
+            `;
+        }
+        calcularMedias();
+    </script>
+    <p id="resultado7"></p>
+
+     <!-- Exercício 8: Calcular valor total das peças com IPI -->
+     <h2>Exercício 8: Calcular Valor Total das Peças</h2>
+     <script>
+         function calcularValorTotal() {
+             const ipi = parseFloat(prompt("Digite a porcentagem do IPI a ser acrescido:"));
+             const codigoPeça1 = prompt("Digite o código da peça 1:");
+             const valorUnitario1 = parseFloat(prompt(`Digite o valor unitário da peça ${codigoPeça1}:`));
+             const quantidade1 = parseInt(prompt(`Digite a quantidade de peças ${codigoPeça1}:`));
+ 
+             const codigoPeça2 = prompt("Digite o código da peça 2:");
+             const valorUnitario2 = parseFloat(prompt(`Digite o valor unitário da peça ${codigoPeça2}:`));
+             const quantidade2 = parseInt(prompt(`Digite a quantidade de peças ${codigoPeça2}:`));
+ 
+             const totalPagar = (valorUnitario1 * quantidade1 + valorUnitario2 * quantidade2) * (ipi / 100 + 1);
+ 
+             document.getElementById("resultado8").textContent = `Valor total a ser pago: R$ ${totalPagar.toFixed(2)}`;
+         }
+         calcularValorTotal();
+     </script>
+     <p id="resultado8"></p>
+ 
+     <!-- Exercício 9: Calcular quantidade de salários mínimos -->
+     <h2>Exercício 9: Calcular Quantidade de Salários Mínimos</h2>
+     <script>
+         function calcularSalariosMinimos() {
+             const salarioMinimo = 1212.00; // Valor do salário mínimo
+             const salarioUsuario = parseFloat(prompt("Digite o salário do usuário:"));
+ 
+             const quantidadeSalarios = salarioUsuario / salarioMinimo;
+ 
+             document.getElementById("resultado9").textContent = `O usuário ganha ${quantidadeSalarios.toFixed(2)} salários mínimos`;
+         }
+         calcularSalariosMinimos();
+     </script>
+     <p id="resultado9"></p>
+ 
+     <!-- Exercício 10: Reajustar saldo em 1.5% -->
+     <h2>Exercício 10: Reajustar Saldo em 1.5%</h2>
+     <script>
+         function reajustarSaldo() {
+             const saldo = parseFloat(prompt("Digite o saldo a ser reajustado:"));
+ 
+             const saldoReajustado = saldo * 1.015; // Acréscimo de 1.5%
+ 
+             document.getElementById("resultado10").textContent = `Saldo reajustado: R$ ${saldoReajustado.toFixed(2)}`;
+         }
+         reajustarSaldo();
+     </script>
+     <p id="resultado10"></p>
+ 
+     <!-- Exercício 11: Calcular salário de vendedor -->
+     <h2>Exercício 11: Calcular Salário do Vendedor</h2>
+     <script>
+         function calcularSalarioVendedor() {
+             const nome = prompt("Digite o nome do vendedor:");
+             const salarioFixo = parseFloat(prompt("Digite o salário fixo do vendedor:"));
+             const totalVendas = parseFloat(prompt("Digite o total de vendas do vendedor:"));
+ 
+             const comissao = totalVendas * 0.15; // 15% de comissão sobre as vendas
+             const salarioFinal = salarioFixo + comissao;
+ 
+             document.getElementById("resultado11").textContent = `
+                 Nome do vendedor: ${nome}<br>
+                 Salário fixo: R$ ${salarioFixo.toFixed(2)}<br>
+                 Salário final do mês: R$ ${salarioFinal.toFixed(2)}
+             `;
+         }
+         calcularSalarioVendedor();
+     </script>
+     <p id="resultado11"></p>
+ 
+     <!-- Exercício 12: Calcular soma dos números de 1 a 15 -->
+     <h2>Exercício 12: Calcular Soma de 1 a 15</h2>
+     <script>
+         function calcularSoma() {
+             let soma = 0;
+             for (let i = 1; i <= 15; i++) {
+                 soma += i;
+             }
+ 
+             document.getElementById("resultado12").textContent = `Soma dos números de 1 a 15: ${soma}`;
+         }
+         calcularSoma();
+     </script>
+     <p id="resultado12"></p>
+ 
+     <!-- Exercício 13: Converter Celsius para Fahrenheit -->
+     <h2>Exercício 13: Converter Celsius para Fahrenheit</h2>
+     <script>
+         function converterTemperatura() {
+             const celsius = parseFloat(prompt("Digite a temperatura em graus Celsius:"));
+ 
+             const fahrenheit = (9 * celsius + 160) / 5;
+ 
+             document.getElementById("resultado13").textContent = `Temperatura em Fahrenheit: ${fahrenheit.toFixed(2)} °F`;
+         }
+         converterTemperatura();
+     </script>
+     <p id="resultado13"></p>
+ 
+     <!-- Exercício 14: Calcular soma de 10 números -->
+     <h2>Exercício 14: Calcular Soma de 10 Números</h2>
+     <script>
+         function calcularSomaDezNumeros() {
+             let soma = 0;
+             for (let i = 1; i <= 10; i++) {
+                 const numero = parseFloat(prompt(`Digite o número ${i}:`));
+                 soma += numero;
+             }
+ 
+             document.getElementById("resultado14").textContent = `Soma dos 10 números: ${soma}`;
+         }
+         calcularSomaDezNumeros();
+     </script>
+     <p id="resultado14"></p>
+ 
+     <!-- Exercício 15: Calcular soma das idades de 20 pessoas -->
+     <h2>Exercício 15: Calcular Soma das Idades</h2>
+     <script>
+         function calcularSomaIdades() {
+             let soma = 0;
+             for (let i = 1; i <= 20; i++) {
+                 const idade = parseInt(prompt(`Digite a idade da pessoa ${i}:`));
+                 soma += idade;
+             }
+ 
+             document.getElementById("resultado15").textContent = `Soma das idades: ${soma}`;
+         }
+         calcularSomaIdades();
+     </script>
+     <p id="resultado15"></p>
+ 
+     <!-- Exercício 16: Calcular média das idades de 20 pessoas -->
+     <h2>Exercício 16: Calcular Média das Idades</h2>
+     <script>
+         function calcularMediaIdades() {
+             let soma = 0;
+             for (let i = 1; i <= 20; i++) {
+                 const idade = parseInt(prompt(`Digite a idade da pessoa ${i}:`));
+                 soma += idade;
+             }
+ 
+             const media = soma / 20;
+ 
+             document.getElementById("resultado16").textContent = `Média das idades: ${media.toFixed(2)}`;
+         }
+         calcularMediaIdades();
+     </script>
+     <p id="resultado16"></p>
+
+      <!-- Exercício 17: Contar quantas pessoas são maiores de idade -->
+    <h2>Exercício 17: Contar Pessoas Maiores de Idade</h2>
+    <script>
+        function contarMaioresIdade() {
+            let contador = 0;
+            for (let i = 1; i <= 20; i++) {
+                const idade = parseInt(prompt(`Digite a idade da pessoa ${i}:`));
+                if (idade >= 18) {
+                    contador++;
+                }
+            }
+            document.getElementById("resultado17").textContent = `Pessoas maiores de idade: ${contador}`;
+        }
+        contarMaioresIdade();
+    </script>
+    <p id="resultado17"></p>
+
+    <!-- Exercício 18: Identificar o nome da pessoa mais nova -->
+    <h2>Exercício 18: Identificar Pessoa Mais Nova</h2>
+    <script>
+        function pessoaMaisNova() {
+            let pessoaMaisNovaNome = "";
+            let idadeMaisNova = Infinity;
+            for (let i = 1; i <= 10; i++) {
+                const nome = prompt(`Digite o nome da pessoa ${i}:`);
+                const idade = parseInt(prompt(`Digite a idade de ${nome}:`));
+                if (idade < idadeMaisNova) {
+                    idadeMaisNova = idade;
+                    pessoaMaisNovaNome = nome;
+                }
+            }
+            document.getElementById("resultado18").textContent = `Pessoa mais nova: ${pessoaMaisNovaNome}`;
+        }
+        pessoaMaisNova();
+    </script>
+    <p id="resultado18"></p>
+
+    <!-- Exercício 19: Conversão de Dólar para Real -->
+    <h2>Exercício 19: Conversão de Dólar para Real</h2>
+    <script>
+        function converterDolarParaReal() {
+            const cotacaoDolar = parseFloat(prompt("Digite a cotação do dólar:"));
+            const quantidadeDolar = parseFloat(prompt("Digite a quantidade de dólares:"));
+
+            const valorReal = cotacaoDolar * quantidadeDolar;
+
+            document.getElementById("resultado19").textContent = `Valor em reais: R$ ${valorReal.toFixed(2)}`;
+        }
+        converterDolarParaReal();
+    </script>
+    <p id="resultado19"></p>
+
+    <!-- Exercício 20: Contar quantos números são maiores que 8 -->
+    <h2>Exercício 20: Contar Números Maiores que 8</h2>
+    <script>
+        function contarMaioresQueOito() {
+            let contador = 0;
+            for (let i = 1; i <= 20; i++) {
+                const numero = parseFloat(prompt(`Digite o número ${i}:`));
+                if (numero > 8) {
+                    contador++;
+                }
+            }
+            document.getElementById("resultado20").textContent = `Números maiores que 8: ${contador}`;
+        }
+        contarMaioresQueOito();
+    </script>
+    <p id="resultado20"></p>
+
+    <!-- Exercício 21: Calcular valor das prestações -->
+    <h2>Exercício 21: Calcular Valor das Prestações</h2>
+    <script>
+        function calcularPrestacoes() {
+            const valorCompra = parseFloat(prompt("Digite o valor da compra:"));
+
+            const valorPrestacao = valorCompra / 5;
+
+            document.getElementById("resultado21").textContent = `Valor de cada prestação: R$ ${valorPrestacao.toFixed(2)}`;
+        }
+        calcularPrestacoes();
+    </script>
+    <p id="resultado21"></p>
+
+    <!-- Exercício 22: Contar números entre 0 e 100 -->
+    <h2>Exercício 22: Contar Números entre 0 e 100</h2>
+    <script>
+        function contarNumerosEntre0e100() {
+            let contador = 0;
+            for (let i = 1; i <= 20; i++) {
+                const numero = parseFloat(prompt(`Digite o número ${i}:`));
+                if (numero >= 0 && numero <= 100) {
+                    contador++;
+                }
+            }
+            document.getElementById("resultado22").textContent = `Números entre 0 e 100: ${contador}`;
+        }
+        contarNumerosEntre0e100();
+    </script>
+    <p id="resultado22"></p>
+
+    <!-- Exercício 23: Contar números em diferentes faixas -->
+    <h2>Exercício 23: Contar Números em Faixas</h2>
+    <script>
+        function contarNumerosPorFaixa() {
+            let contador0a100 = 0;
+            let contador101a200 = 0;
+            let contadorMaior200 = 0;
+            for (let i = 1; i <= 20; i++) {
+                const numero = parseFloat(prompt(`Digite o número ${i}:`));
+                if (numero >= 0 && numero <= 100) {
+                    contador0a100++;
+                } else if (numero >= 101 && numero <= 200) {
+                    contador101a200++;
+                } else if (numero > 200) {
+                    contadorMaior200++;
+                }
+            }
+            document.getElementById("resultado23").textContent = `
+                Números entre 0 e 100: ${contador0a100}<br>
+                Números entre 101 e 200: ${contador101a200}<br>
+                Números maiores que 200: ${contadorMaior200}
+            `;
+        }
+        contarNumerosPorFaixa();
+    </script>
+    <p id="resultado23"></p>
+
+    <!-- Exercício 24: Calcular soma de números até receber negativo -->
+    <h2>Exercício 24: Calcular Soma até Número Negativo</h2>
+    <script>
+        function calcularSomaAteNegativo() {
+            let soma = 0;
+            let numero = 0;
+            while (numero >= 0) {
+                numero = parseFloat(prompt("Digite um número (negativo para sair):"));
+                if (numero >= 0) {
+                    soma += numero;
+                }
+            }
+            document.getElementById("resultado24").textContent = `Soma dos números: ${soma}`;
+        }
+        calcularSomaAteNegativo();
+    </script>
+    <p id="resultado24"></p>
+
+    <!-- Exercício 25: Calcular soma de números até receber negativo (outra abordagem) -->
+    <h2>Exercício 25: Calcular Soma até Número Negativo (Outra Abordagem)</h2>
+    <script>
+        function calcularSomaAteNegativoOutraAbordagem() {
+            let soma = 0;
+            let numero = 0;
+            do {
+                numero = parseFloat(prompt("Digite um número (negativo para sair):"));
+                if (numero >= 0) {
+                    soma += numero;
+                }
+            } while (numero >= 0);
+            document.getElementById("resultado25").textContent = `Soma dos números: ${soma}`;
+        }
+        calcularSomaAteNegativoOutraAbordagem();
+    </script>
+    <p id="resultado25"></p>
+
+</body>
+</html>
